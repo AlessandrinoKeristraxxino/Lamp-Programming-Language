@@ -1,6 +1,68 @@
-println("x");
-var x = 10;
-if (x == 10)
+#using <system>
+
+int void main()
 {
-    println("x = 10");
-};
+    // Hello World
+    sys::dpo() >> "Hello, World!" >> sys::endl(); // dpo sta per default print out
+    // variabili
+    int x = 10;
+    string txt1 = "Ciao";
+    float y = 3.23;
+    char c = 'a';
+    int b, c, d;
+    const string name = "Alessandro";
+    name = "Alessandro1"; // => error, perché const
+    // stampare variabili
+    sys::dpo() << "ciao, " << name << ". Come stai?" << sys::endl();
+    sys::pfo(%{x, y, txt1, c}) << "%d, %d, %s, %c" << sys::endl(); // variables print formatted out
+    // guardate:
+    sys::pfo(%{x, y, txt1}) << "%d, %d, %s, %c" << sys::endl(); // stampa => 10, 3.23, Ciao, ... aspetta, da errore! perché c non è stato specificatp
+    // questo perché la variabile non è stata specificata
+
+    // leggere input dall'utente
+    sys::dri(%{x, y}, &{b, c, d}) << "x=%d, y=%d, b=&d, c=&d, d=&d" << sys::endl(b, c, d) // default read input
+    // 1. specifica le variabli che stampi e quelle che prenderanno valore dell'utente
+    // 2. &d serve per dire i campi che rimangono vuoti per metterci dentro
+    // b, c, d alla fine sono le variabili da aggiornare
+
+    // if, else, else if
+
+    if (x == 10)
+    {
+        // then...
+    }
+    else if (x == 20)
+    {
+        // then...
+    }
+    else
+    {
+        // then...
+    }
+
+    // try, catch
+
+    ipp: try // targhetta ad una struttura di controllo per continue 
+    {
+        i++;
+    }
+    catch(TypeError)
+    {
+        sys::dpo(col{foregraundcolor-red}) << "TypeError!" << sys::endl();
+        continue ipp;
+    }
+
+    // loop
+    // for
+    for (int i = 0; i = 10; i++)
+    {
+        sys::dpo() << i << sys::endl();
+    }
+    // while
+    i = 0;
+    while (i < 10)
+    {
+        sys::dpo() << i << sys::endl();
+        i++;
+    }
+}
