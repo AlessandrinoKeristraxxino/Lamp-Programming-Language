@@ -39,7 +39,7 @@ LAMP is a modern, interpreted programming language built from scratch in C++. De
 int main()
 {
     // Hello, World!
-    sys::dpo() >> "Hello, World!" >> sys::endl();
+    sys::dpo() << "Hello, World!" << sys::endl();
 
     // Variables
     int x = 10;
