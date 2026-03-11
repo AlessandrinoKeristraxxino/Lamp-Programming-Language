@@ -1,0 +1,43 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# C++ source files
+*.cpp text eol=lf
+*.h text eol=lf
+
+# Makefiles must use tabs
+Makefile text eol=lf
+
+# LAMP source files
+*.lamp text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+
+# Config files
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+
+# Windows-specific: treat batch files as CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Linguist overrides for GitHub language detection
+*.lamp linguist-language=LAMP
+*.h linguist-language=C++
+*.cpp linguist-language=C++
+src/** linguist-detectable=true

@@ -1,0 +1,24 @@
+# Compiled binary
+lamp
+lamp.exe
+
+# Object files
+*.o
+*.obj
+
+# Build directories
+build/
+dist/
+
+# IDE files
+.vscode/
+.idea/
+*.user
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
