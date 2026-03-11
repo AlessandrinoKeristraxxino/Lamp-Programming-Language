@@ -1,0 +1,18 @@
+{
+    "name": "lamp",
+    "version": "0.2.0-alpha",
+    "description": "LAMP - Light for the future. A modern, interpreted programming language built from scratch in C++.",
+    "author": "Alessandro",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AlessandrinoKeristraxxino/Lamp-Programming-Language.git"
+    },
+    "keywords": [
+        "programming-language",
+        "compiler",
+        "interpreter",
+        "cpp",
+        "lamp"
+    ]
+}
