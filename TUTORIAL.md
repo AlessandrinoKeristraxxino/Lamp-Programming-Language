@@ -296,13 +296,13 @@ unsigned long x = 18000000000;
 
 ### 5.6 String — `string`
 
-```lamp
+```c
 string x = "hello";
 ```
 
 `string` stores a sequence of characters enclosed in double quotes. Unlike `char`, which holds a single character, `string` can hold text of arbitrary length. It is also used, as described in section 4.5, to capture references returned by `filelib::search` at runtime.
 
-### 6.0 Void
+### 6.0 Void - `void`
 
 ```lamp
 #include <std.io>
@@ -325,4 +325,56 @@ int main()
 }
 ```
 
-`void` serve per dichiarare una funzione che non restituisce nulla, ma esegue un
+`void` serve per dichiarare una funzione che non restituisce nulla, ma che esegue un blocco di codice
+
+### 6.1 Static - `static`
+
+```lamp
+#include <std.io>
+
+/* In Lamp, the 'static' keyword ensures that a variable 
+   persists in memory throughout the entire program execution. 
+*/
+
+int plpl(int x, int y)
+{
+    x++;
+    y++;
+    return x, y;
+}
+
+int main()
+{
+    int x = 0;          // Automatic variable: reset/re-initialized
+    static int y = 0;   // Static variable: persistent memory location
+
+    plpl(x, y);
+    // After first execution:
+    // x = 0; (Automatic: local copy lost)
+    // y = 1; (Static: value 1 is stored)
+
+    plpl(x, y);
+    // After second execution:
+    // x = 0; (Automatic: starts from 0 again)
+    // y = 2; (Static: starts from 1 and increments)
+}
+```
+
+In the Lamp programming language, the `static` keyword modifies the storage duration of a variable without altering its scope.
+
+#### Key Technical Concepts
+
+- **Persistence:** Unlike a standard variable like `int x` (which is automatic and technically exists on the Stack), a `static int y` is stored in a dedicated Data Segment. It remains alive for the entire duration of the program's lifecycle.
+- **Single Initialization:** The assignment `static int y = 0` is executed only once. During any subsequent passes or function calls, the system ignores the initialization line and retrieves the last value stored in that memory address.
+- **Behavioral Logic:** In the provided code, while `x` is effectively "re-born" as $0$ every time the logic resets, `y` maintains its state. This allows `y` to "remember" it was $1$ after the first call, enabling it to increment to $2$ during the second call.
+
+#### Summary Table
+
+| Feature             | Automatic (`int x`)        | Static (`static int y`)       |
+|---------------------|----------------------------|-------------------------------|
+| Memory Location     | Stack                      | Data Segment                  |
+| Lifetime            | Block Scope (Temporary)    | Program Duration (Permanent)  |
+| Initialization      | Every time block is entered| Only once                     |
+| Value Retention     | Lost after block exit      | Retained between calls        |
+
+### Input dell'utente
