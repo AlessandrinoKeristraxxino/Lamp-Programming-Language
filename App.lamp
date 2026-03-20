@@ -1,0 +1,21 @@
+#include <std.io>
+
+template T sum<T; x, y>
+{
+    T res = x + y;
+    return res;
+}
+
+int main(void)
+{
+    std::dpo << "Hello, World!\n";
+    std::lpo << "Hello, Wordl!";
+    const static string w = "world";
+    std::fpo << "Hello, %s!" <<! w;
+
+    int x = 10;
+    int xpx = sum(int; x, x);
+    std::lpo << xpx; // => 20
+
+    int intMax = INT_MAX;
+}

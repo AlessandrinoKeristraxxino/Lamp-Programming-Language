@@ -1,0 +1,14 @@
+#include <std.io>
+#include <runCode>
+#include <filesLibrary>
+
+try:
+    runcode::run<App.lamp<main>>;
+catch (runcode.noFunction):
+    string main = filelib::search(
+        source: "App.lamp",
+        search: filelib::search.firstFunction(
+            name: ??,
+            inBrackets: "void"
+        );
+    );
